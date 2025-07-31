@@ -1,1 +1,45 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essential Kitchen Gear</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+</head>
+<body>
+  <div class="navbar">
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <h3>Essential Kitchen Gear</h3>
+  </div>  <div class="side-menu" id="sideMenu">
+    <div class="category" onclick="toggleCategory(this)">Kitchen Utensils</div>
+    <div class="sub-category">
+      <a href="#">Spoons</a>
+      <a href="#">Plates</a>
+      <a href="#">Pans</a>
+      <a href="#">Cooking Sets</a>
+    </div>
+    <div class="category" onclick="toggleCategory(this)">Interior Decor</div>
+    <div class="sub-category">
+      <a href="#">Curtains</a><a href="#">Wall Arts</a>
+    </div>
+    <div class="category" onclick="toggleCategory(this)">Toys</div>
+    <div class="sub-category">
+      <a href="#">Plastic</a><a href="#">Electronic</a>
+    </div>
+  </div>  <div class="search-box">
+    <input type="text" id="search" placeholder="Search products...">
+  </div>  <div class="product-grid" id="productGrid"></div>  <div class="cart-icon" onclick="showCartModal()">
+    <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+  </div>  <div class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</div>  <div id="cart-modal">
+    <div class="content">
+      <h3>Cart Summary</h3>
+      <div id="cartItems"></div>
+      <p><strong>Total:</strong> ₦<span id="totalPrice">0</span></p>
+      <a id="whatsappOrder" href="#" target="_blank">Order on WhatsApp</a>
+    </div>
+  </div> 
+  
+   
+</body>
+</html>
 
