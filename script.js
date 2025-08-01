@@ -1,115 +1,72 @@
-const products = [
-  { name: "Stainless Spoon Set", price: 1500, category: "Kitchen Utensils", img: "images/spoon.jpg" },
-  { name: "Ceramic Plate Set", price: 3500, category: "Kitchen Utensils", img: "images/plate.jpg" },
-  { name: "Non-stick Pan", price: 5000, category: "Kitchen Utensils", img: "images/pan.jpg" },
-  { name: "Curtain", price: 5500, category: "Interior Decor", img: "images/curtain.jpg" },
-  { name: "RC Toy Car", price: 8000, category: "Toys", img: "images/toycar.jpg" },
-  { name: "Chef Knife Set", price: 4200, category: "Kitchen Utensils", img: "images/knife.jpg" },
-  { name: "Snuf Cup", price: 1200, category: "Kitchen Utensils", img: "images/bolb.jpg" }
+const sampleProducts = [
+  { name: "Wooden Spoon", price: 500, image: "images/spoon.jpg" },
+  { name: "Plate Set", price: 1500, image: "images/plates.jpg" },
+  { name: "Non-Stick Pan", price: 3500, image: "images/pan.jpg" },
+  { name: "Cooking Set", price: 10000, image: "images/cooking-set.jpg" },
+  { name: "Curtain Design", price: 4500, image: "images/curtain.jpg" },
+  { name: "Wall Art", price: 2000, image: "images/wall-art.jpg" },
+  { name: "Plastic Toy", price: 800, image: "images/plastic-toy.jpg" },
+  { name: "Electronic Toy", price: 3000, image: "images/electronic-toy.jpg" }
 ];
 
-const cart = [];
+const grid = document.getElementById("productGrid");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const totalPriceEl = document.getElementById("totalPrice");
+const cartModal = document.getElementById("cart-modal");
+const whatsappOrder = document.getElementById("whatsappOrder");
 
-function toggleMenu() {
-  document.getElementById('sideMenu').classList.toggle('active');
-}
+let cart = [];
 
-function toggleCategory(el) {
-  const next = el.nextElementSibling;
-  next.style.display = next.style.display === 'block' ? 'none' : 'block';
-}
-
-function renderProducts() {
-  const grid = document.getElementById("productGrid");
+function renderCards() {
   grid.innerHTML = "";
-  products.forEach((prod, i) => {
-    const timestamp = Date.now() - i * 60000; // fake varying time
-    grid.innerHTML += `
-      <div class="card product-card" data-added="${timestamp}">
-        <img src="${prod.img}" alt="${prod.name}">
-        <div class="info">
-          <h4>${prod.name}</h4>
-          <p>₦${prod.price}</p>
-        </div>
-        <div class="add-btn" onclick="addToCart(${i}, this)">Add to Cart</div>
-        <div class="checkout-btn" onclick="showCartModal()">Checkout</div>
-      </div>
+  sampleProducts.forEach((product, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" />
+      <h4>${product.name}</h4>
+      <p>₦${product.price}</p>
+      <button onclick="addToCart(${i})">Add to Cart</button>
     `;
+    grid.appendChild(card);
   });
-
-  updateSliderCards();
 }
 
-function addToCart(index, btn) {
-  cart.push(products[index]);
-  document.getElementById('cartCount').innerText = cart.length;
-  btn.nextElementSibling.style.display = 'block';
+function addToCart(index) {
+  cart.push(sampleProducts[index]);
+  updateCart();
+}
+
+function updateCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+  cart.forEach((item, i) => {
+    total += item.price;
+    const div = document.createElement("div");
+    div.textContent = `${item.name} - ₦${item.price}`;
+    cartItems.appendChild(div);
+  });
+  cartCount.textContent = cart.length;
+  totalPriceEl.textContent = total;
+  whatsappOrder.href = `https://wa.me/?text=I'm%20ordering:%0A${cart.map(
+    (p) => `- ${p.name}: ₦${p.price}`
+  ).join("%0A")}%0ATotal: ₦${total}`;
 }
 
 function showCartModal() {
-  const list = document.getElementById("cartItems");
-  const total = cart.reduce((acc, item) => acc + item.price, 0);
-  list.innerHTML = cart.map(item => `<p>${item.name} - ₦${item.price}</p>`).join('');
-  document.getElementById("totalPrice").innerText = total;
-  document.getElementById("whatsappOrder").href = `https://wa.me/234XXXXXXXXXX?text=I want to order:\n${cart.map(item => item.name + ' - ₦' + item.price).join('\n')}\nTotal: ₦${total}`;
-  document.getElementById("cart-modal").style.display = "flex";
+  cartModal.classList.toggle("active");
 }
 
-document.getElementById("search").addEventListener("input", function () {
-  const keyword = this.value.toLowerCase();
-  const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
-  const grid = document.getElementById("productGrid");
-  grid.innerHTML = "";
-  filtered.forEach((prod, i) => {
-    const timestamp = Date.now() - i * 60000;
-    grid.innerHTML += `
-      <div class="card product-card" data-added="${timestamp}">
-        <img src="${prod.img}" alt="${prod.name}">
-        <div class="info">
-          <h4>${prod.name}</h4>
-          <p>₦${prod.price}</p>
-        </div>
-        <div class="add-btn" onclick="addToCart(${i}, this)">Add to Cart</div>
-        <div class="checkout-btn" onclick="showCartModal()">Checkout</div>
-      </div>
-    `;
-  });
-
-  updateSliderCards();
-});
-
-function updateSliderCards() {
-  const productCards = Array.from(document.querySelectorAll(".product-card"));
-  if (!productCards.length) return;
-
-  const sorted = productCards
-    .filter(card => card.dataset.added)
-    .sort((a, b) => b.dataset.added - a.dataset.added)
-    .slice(0, 4);
-
-  const slider = document.getElementById("productSlider");
-  if (!slider) return;
-
-  slider.innerHTML = ""; // clear previous
-
-  sorted.forEach(card => {
-    const title = card.querySelector("h4")?.innerText || "No Title";
-    const imgSrc = card.querySelector("img")?.src || "";
-    const div = document.createElement("div");
-    div.className = "slider-card";
-    div.innerHTML = `
-      <img src="${imgSrc}" alt="${title}">
-      <h4>${title}</h4>
-    `;
-    slider.appendChild(div);
-  });
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
 }
 
-// Run slider update every 3 seconds
-setInterval(updateSliderCards, 3000);
+function toggleCategory(element) {
+  const next = element.nextElementSibling;
+  if (next && next.classList.contains("sub-category")) {
+    next.style.display = next.style.display === "block" ? "none" : "block";
+  }
+}
 
-renderProducts();
-
-window.addEventListener("scroll", () => {
-  document.querySelector(".scroll-top").style.display = window.scrollY > 100 ? "block" : "none";
-});
+renderCards();
