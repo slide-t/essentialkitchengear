@@ -29,11 +29,20 @@
     <div class="sub-category">
       <a href="#">Plastic</a><a href="#">Electronic</a>
     </div>
-  </div>  <div class="search-box">
+  </div>  
+  <div class="search-box">
     <input type="text" id="search" placeholder="Search products...">
-  </div>  <div class="product-grid" id="productGrid"></div>  <div class="cart-icon" onclick="showCartModal()">
+  </div> 
+
+  <div class="slider-wrapper">
+  <div class="slider" id="productSlider">
+    <!-- Cards will be inserted dynamically -->
+  </div>
+</div>
+  <div class="product-grid" id="productGrid"></div>  <div class="cart-icon" onclick="showCartModal()">
     <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
-  </div>  <div class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</div>  <div id="cart-modal">
+  </div> 
+  <div class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</div>  <div id="cart-modal">
     <div class="content">
       <h3>Cart Summary</h3>
       <div id="cartItems"></div>
