@@ -1,7 +1,7 @@
 
 
     const products = [
-      { name: "Stainless Spoon Set", price: 1500, category: "Kitchen Utensils", img: "https://via.placeholder.com/200" },
+      { name: "Stainless Spoon Set", price: 1500, category: "Kitchen Utensils", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtkRt76rV9PPmX-WcsWoVzfqCwjN5Ry1XhxcMp-rPx8tAYPBEk4ziugtOMNmVHxFO-y0derZUZRcFQ5J5eTrqRvvWZUcO5zJfpotWLTxxFHNBBI2WDUn8jPeS_ZnknDSITfb7SCgfrk82WW6L9iyLS-9H5hYkZfm9EQDAfcJZLn_Y5Vpx9VCsiKgjBp_M/s320/1000049050.jpg" },
       { name: "Ceramic Plate Set", price: 3500, category: "Kitchen Utensils", img: "https://via.placeholder.com/200" },
       { name: "Non-stick Pan", price: 5000, category: "Kitchen Utensils", img: "https://via.placeholder.com/200" },
       { name: "Curtain", price: 5500, category: "Interior Decor", img: "https://via.placeholder.com/200" },
