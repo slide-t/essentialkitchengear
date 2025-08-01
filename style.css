@@ -24,7 +24,7 @@
     }
     .side-menu {
       position: fixed;
-      top: 50px; 
+      top: 0; 
       left: -100%;
       width: 50%; 
       height: 100%;
@@ -38,7 +38,7 @@
     .category {
       cursor: pointer;
       font-weight: bold;
-      margin-top: 1rem;
+      margin-top: 3rem;
     }
     .sub-category {
       margin-left: 1rem;
