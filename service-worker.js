@@ -1,4 +1,4 @@
-const CACHE_NAME = 'essential-kitchen-v2'; // Increment version when files change
+const CACHE_NAME = 'essential-kitchen-v3'; // Increment version when files change
 const urlsToCache = [
   '/',
   '/index.html',
