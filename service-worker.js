@@ -4,6 +4,7 @@ const urlsToCache = [
   "/essentialkitchengear/index.html",
   "/essentialkitchengear/style.css",
   "/essentialkitchengear/script.js",
+  "/essentialkitchengear/main.js",
   "/essentialkitchengear/manifest.json",
   "/essentialkitchengear/icon-192.png",
   "/essentialkitchengear/icon-512.png"
