@@ -109,9 +109,9 @@ body {
 }
 
 .add-btn {
-  background: #001219;
+  background: #007bcc;
   color: #fff;
-  padding: 0.5em 0.8em;
+  padding: 8px 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
