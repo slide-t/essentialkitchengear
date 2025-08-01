@@ -106,7 +106,7 @@ function updateSliderCards() {
     `;
     slider.appendChild(div);
   });
-}
+
 
 function autoSlide() {
   const slider = document.getElementById("productSlider");
