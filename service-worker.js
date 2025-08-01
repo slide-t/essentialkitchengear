@@ -1,4 +1,4 @@
-const CACHE_NAME = "essential-kitchen-cache-v13";
+const CACHE_NAME = "essential-kitchen-cache-v14";
 const urlsToCache = [
   "/essentialkitchengear/",
   "/essentialkitchengear/index.html",
