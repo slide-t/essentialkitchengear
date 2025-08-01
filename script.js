@@ -5,7 +5,7 @@ const products = [
   { name: "Curtain", price: 5500, category: "Interior Decor", img: "images/curtain.jpg" },
   { name: "RC Toy Car", price: 8000, category: "Toys", img: "images/toycar.jpg" },
   { name: "Chef Knife Set", price: 4200, category: "Kitchen Utensils", img: "images/knife.jpg" },
-  { name: "Snuf Cup", price: 1200, category: "Kitchen Utensils", img: "images/snufcup.jpg" }
+  { name: "Snuf Cup", price: 1200, category: "Kitchen Utensils", img: "https://github.com/slide-t/essentialkitchengear/blob/main/IMG-20250719-WA0056.jpg" }
 ];
 
 const cart = [];
