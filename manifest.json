@@ -1,11 +1,11 @@
 {
   "name": "Essential Kitchen Gear",
-  "short_name": "Kitchen Gear",
+  "short_name": "KitchenGear",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#001219",
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
