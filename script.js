@@ -1,6 +1,6 @@
 const sampleProducts = [
   { name: "Wooden Spoon", price: 500, image: "https://github.com/slide-t/essentialkitchengear/blob/main/Image/cup-straw.jpg" },
-  { name: "Plate Set", price: 1500, image: "images/plates.jpg" },
+  { name: "Plate Set", price: 1500, image: "https://github.com/slide-t/essentialkitchengear/blob/main/Image/cup-straw.jpg" },
   { name: "Non-Stick Pan", price: 3500, image: "images/pan.jpg" },
   { name: "Cooking Set", price: 10000, image: "images/cooking-set.jpg" },
   { name: "Curtain Design", price: 4500, image: "images/curtain.jpg" },
