@@ -2,9 +2,9 @@
 {
   "name": "Essential Kitchen Gear",
   "short_name": "Kitchen Gear",
-  "start_url": "./index.html",
+  "start_url": "./https://slide-t.github.io/essentialkitchengear/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "theme_color": "#001219",
   "orientation": "portrait-primary",
   "icons": [
