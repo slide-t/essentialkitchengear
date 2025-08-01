@@ -1,4 +1,4 @@
-const sampleProducts = [
+/*const sampleProducts = [
   { name: "Wooden Spoon", price: 500, image: "https://raw.githubusercontent.com/slide-t/essentialkitchengear/main/Image/cup-straw.jpg" },
   { name: "Plate Set", price: 1500, image: "https://raw.githubusercontent.com/slide-t/essentialkitchengear/main/Image/cup-straw.jpg" },
   { name: "Non-Stick Pan", price: 3500, image: "https://raw.githubusercontent.com/slide-t/essentialkitchengear/main/Image/pan.jpg" },
