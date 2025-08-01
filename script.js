@@ -79,4 +79,50 @@
       document.querySelector(".scroll-top").style.display = window.scrollY > 100 ? "block" : "none";
     });
   
-  
+  let sliderIndex = 0;
+
+function updateSliderCards() {
+  const productCards = Array.from(document.querySelectorAll(".product-card"));
+  if (!productCards.length) return;
+
+  // Sort by data-added (timestamp)
+  const sorted = productCards
+    .filter(card => card.dataset.added)
+    .sort((a, b) => b.dataset.added - a.dataset.added)
+    .slice(0, 4);
+
+  const slider = document.getElementById("productSlider");
+  slider.innerHTML = ""; // clear previous
+
+  sorted.forEach((card) => {
+    const title = card.querySelector("h4")?.innerText || "No Title";
+    const imgSrc = card.querySelector("img")?.src || "";
+
+    const div = document.createElement("div");
+    div.className = "slider-card";
+    div.innerHTML = `
+      <img src="${imgSrc}" alt="${title}">
+      <h4>${title}</h4>
+    `;
+    slider.appendChild(div);
+  });
+}
+
+function autoSlide() {
+  const slider = document.getElementById("productSlider");
+  const totalSlides = slider.children.length;
+
+  if (totalSlides <= 1) return;
+
+  sliderIndex = (sliderIndex + 1) % totalSlides;
+  slider.style.transform = `translateX(-${sliderIndex * 25}%)`;
+}
+
+// Start sliding every 3 seconds
+setInterval(autoSlide, 3000);
+
+// Monitor product changes every 5 seconds
+setInterval(updateSliderCards, 5000);
+
+// Initial trigger
+document.addEventListener("DOMContentLoaded", updateSliderCards);
