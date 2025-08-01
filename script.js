@@ -108,22 +108,6 @@ function updateSliderCards() {
     slider.appendChild(div);
   });
 
-}
-function autoSlide() {
-  const slider = document.getElementById("productSlider");
-  const totalSlides = slider.children.length;
 
-  if (totalSlides <= 1) return;
 
-  sliderIndex = (sliderIndex + 1) % totalSlides;
-  slider.style.transform = `translateX(-${sliderIndex * 25}%)`;
-}
 
-// Start sliding every 3 seconds
-setInterval(autoSlide, 3000);
-
-// Monitor product changes every 5 seconds
-setInterval(updateSliderCards, 5000);
-
-// Initial trigger
-document.addEventListener("DOMContentLoaded", updateSliderCards);
