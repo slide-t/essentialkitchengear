@@ -6,8 +6,8 @@
       { name: "Non-stick Pan", price: 5000, category: "Kitchen Utensils", img: "https://via.placeholder.com/200" },
       { name: "Curtain", price: 5500, category: "Interior Decor", img: "https://via.placeholder.com/200" },
       { name: "RC Toy Car", price: 8000, category: "Toys", img: "https://via.placeholder.com/200" },
-      { name: "Chef Knife Set", price: 4200, category: "Kitchen Utensils", img: "https://via.placeholder.com/200" },
-        { name: "Snuf Cup", price: 1200, category: "Kitchen Utensils", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLVUrkBzsG8_J-VDvcSYd_yaqeyyZNpdqfASLApwDtwPpPkBA_KwwmovV2LitgVygj23zchNe-3OYQddkuXv_4huONpnOELk6P7WHDuobpyZ3bDGrDcbY41bMNUADLNszrhrX-1i7KKxq9yCwRMrwv91AGvZXEK1kasVYq77kxQgvnJQaiP0E13y1WYLU/s320/1000049051.jpg" }
+      { name: "Chef Knife Set", price: 4200, category: "Kitchen Utensils", img: "https://via.placeholder.com/200" }
+      /*{ name: "Snuf Cup", price: 1200, category: "Kitchen Utensils", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLVUrkBzsG8_J-VDvcSYd_yaqeyyZNpdqfASLApwDtwPpPkBA_KwwmovV2LitgVygj23zchNe-3OYQddkuXv_4huONpnOELk6P7WHDuobpyZ3bDGrDcbY41bMNUADLNszrhrX-1i7KKxq9yCwRMrwv91AGvZXEK1kasVYq77kxQgvnJQaiP0E13y1WYLU/s320/1000049051.jpg" }*/
     ];
 
     const cart = [];
