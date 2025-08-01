@@ -1,0 +1,198 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f9f9f9;
+}
+
+.navbar {
+  background-color: #001219;
+  color: white;
+  padding: 1em 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.menu-toggle {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.side-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5em 1em;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.side-menu h4 {
+  margin-top: 0;
+}
+
+.category {
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+  cursor: pointer;
+  color: #001219;
+}
+
+.sub-category {
+  display: none;
+  flex-direction: column;
+  margin-bottom: 1em;
+  gap: 0.4em;
+  padding-left: 1em;
+}
+
+.sub-category a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.4em 0.5em;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.category.active + .sub-category {
+  display: flex;
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1em;
+  padding: 1em;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card .title {
+  font-weight: bold;
+  margin: 0.5em 0 0.3em;
+  font-size: 1rem;
+}
+
+.card .price {
+  color: #007f5f;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.add-btn {
+  background: #001219;
+  color: #fff;
+  padding: 0.5em 0.8em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #003845;
+}
+
+/* Buy Now reveal */
+.card .buy-now {
+  display: none;
+  margin-top: 0.5em;
+  background: #007f5f;
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card.flipped .buy-now {
+  display: block;
+}
+
+/* Cart icon */
+.cart-icon {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  background: #001219;
+  color: white;
+  padding: 0.8em;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 50;
+  font-size: 1.2em;
+}
+
+/* Modal */
+#cart-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#cart-modal .content {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 2em;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+#cartItems p {
+  margin: 0.5em 0;
+}
+
+#whatsappOrder {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background: #25d366;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 1em;
+  right: 4em;
+  background: #001219;
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 50%;
+  cursor: pointer;
+}
