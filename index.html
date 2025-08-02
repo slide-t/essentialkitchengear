@@ -392,6 +392,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
     /* signup modal*/
+    /*
 .auth-wrapper {
   perspective: 1000px;
   position: fixed;
@@ -448,7 +449,87 @@
   cursor: pointer;
   font-size: 18px;
   color: white;
-}
+}*/
+    
+  #authModal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  #authCard {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s ease;
+    position: relative;
+  }
+
+  #authCard.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  #authCard h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #1d3557;
+  }
+
+  #authCard p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  #authCard p a {
+    text-decoration: underline;
+    color: #1d3557;
+  }
+
+  #authCard input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  #authCard button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #authClose {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+  }
+
+  @media (max-width: 480px) {
+    #authCard {
+      padding: 1.5rem;
+    }
+  }
+
     
   </style>
 </head>
@@ -711,6 +792,22 @@ function updateCart() {
   });
 });
   </script>
+
+<div id="authModal">
+  <div id="authCard">
+    <div id="authClose" onclick="handleAuthClose()">×</div>
+    <h2>Sign Up</h2>
+    <p>We care about your data. <a href="#">Read our privacy policy</a></p>
+    <form id="authForm">
+      <input type="text" id="username" placeholder="Your name" required />
+      <input type="email" id="email" placeholder="Your email" required />
+      <button type="submit">Get Started</button>
+    </form>
+  </div>
+</div>
+  
+
+  <!--
 <div class="auth-wrapper" id="authModal">
   <div class="auth-card" id="authCard">
     <span class="close-btn" onclick="handleAuthClose()">✖</span>
@@ -727,6 +824,8 @@ function updateCart() {
     </form>
   </div>
 </div>
+  -->
+  <!--modal message -->
 <div id="userGreeting" style="display: none; position: fixed; top: 20px; right: 20px; background: #1d3557; color: #fff; padding: 10px 20px; border-radius: 8px; z-index: 10000;">
   <span id="greetingText"></span>
   <button onclick="logoutUser()" style="margin-left: 10px; background: #e63946; color: #fff; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Logout</button>
