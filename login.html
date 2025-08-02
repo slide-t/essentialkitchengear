@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
 
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #1e1e1e;
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    input, button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.7rem;
+      border-radius: 5px;
+      border: none;
+    }
+
+    input {
+      background: #333;
+      color: white;
+    }
+
+    button {
+      background: #0984e3;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .link a {
+      color: #00cec9;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+    <button onclick="handleLogin()">Login</button>
+
+    <div class="link">
+      Are you new here? <a href="signup.html">Sign up now</a>
+    </div>
+  </div>
+
+  <script>
+    document.body.style.background = localStorage.getItem('theme') === 'dark' ? '#121212' : '#fff';
+    document.body.style.color = localStorage.getItem('theme') === 'dark' ? '#fff' : '#000';
+
+    function handleLogin() {
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      const savedUser = JSON.parse(localStorage.getItem('user'));
+
+      if(savedUser && savedUser.email === email && savedUser.password === password) {
+        alert("Login successful!");
+        localStorage.setItem('isLoggedIn', true);
+        window.location.href = "index.html"; // Change to your homepage
+      } else {
+        alert("Incorrect email or password.");
+      }
+    }
+  </script>
+</body>
+</html>
