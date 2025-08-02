@@ -121,7 +121,40 @@
     .buy-btn:hover {
       background-color: #ffaa33;
     }
+#cartIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #e63946;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  z-index: 1000;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
+#cartIcon:hover {
+  transform: scale(1.05);
+  background-color: #d62828;
+}
+
+#cartCount {
+  background-color: white;
+  color: #e63946;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+    
+    /*
     #cartIcon {
       position: fixed;
       bottom: 15px;
@@ -134,7 +167,7 @@
       font-weight: bold;
       z-index: 1000;
       cursor: pointer;
-    }
+    }*/
 
     @media (min-width: 768px) {
       .grid {
