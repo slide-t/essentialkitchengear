@@ -391,6 +391,65 @@
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+    /* signup modal*/
+.auth-wrapper {
+  perspective: 1000px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  max-width: 360px;
+  display: none;
+  z-index: 9999;
+}
+
+.auth-card {
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  transform-origin: bottom center;
+  transform: rotateX(90deg);
+  transition: transform 0.6s ease;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.auth-card.show {
+  transform: rotateX(0deg);
+}
+
+.auth-card input,
+.auth-card button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+}
+
+.auth-card input {
+  background: #fff;
+  color: #000;
+}
+
+.auth-card button {
+  background: #2ecc71;
+  color: white;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+}
+    
   </style>
 </head>
 <body>
@@ -652,6 +711,88 @@ function updateCart() {
   });
 });
   </script>
+<div class="auth-wrapper" id="authModal">
+  <div class="auth-card" id="authCard">
+    <span class="close-btn" onclick="handleAuthClose()">✖</span>
+    <h3>Join Us</h3>
+    <p style="color:#fff;">
+      We respect your privacy. Your data stays safe.
+      <br />
+      <a href="your-privacy-policy-link.html" style="text-decoration: underline; color: #80ffdb;" target="_blank">Read more</a>
+    </p>
+    <form id="authForm">
+      <input type="text" id="username" placeholder="Enter name" required />
+      <input type="email" id="email" placeholder="Enter email" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+<div id="userGreeting" style="display: none; position: fixed; top: 20px; right: 20px; background: #1d3557; color: #fff; padding: 10px 20px; border-radius: 8px; z-index: 10000;">
+  <span id="greetingText"></span>
+  <button onclick="logoutUser()" style="margin-left: 10px; background: #e63946; color: #fff; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Logout</button>
+</div>
+<script>
+  function toggleAuthFlip(show = true) {
+    const wrapper = document.getElementById('authModal');
+    const card = document.getElementById('authCard');
+    if (show) {
+      wrapper.style.display = "block";
+      setTimeout(() => card.classList.add("show"), 50);
+    } else {
+      card.classList.remove("show");
+      setTimeout(() => wrapper.style.display = "none", 500);
+    }
+  }
+
+  function showGreeting(user) {
+    const greeting = document.getElementById('userGreeting');
+    const text = document.getElementById('greetingText');
+    text.textContent = `Welcome, ${user.name}`;
+    greeting.style.display = 'flex';
+  }
+
+  function logoutUser() {
+    localStorage.removeItem("authUser");
+    localStorage.setItem("authClosedCount", "0"); // Reset modal show count
+    document.getElementById('userGreeting').style.display = "none";
+    location.reload(); // Refresh to check state again
+  }
+
+  // Show modal or greeting on page load
+  window.onload = function () {
+    const user = JSON.parse(localStorage.getItem("authUser"));
+    const closedCount = parseInt(localStorage.getItem("authClosedCount")) || 0;
+
+    if (user) {
+      showGreeting(user);
+    } else if (closedCount < 5) {
+      setTimeout(() => {
+        toggleAuthFlip(true);
+      }, 20000);
+    }
+  }
+
+  // Handle signup
+  document.getElementById("authForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const user = { name, email };
+    localStorage.setItem("authUser", JSON.stringify(user));
+    toggleAuthFlip(false);
+    showGreeting(user);
+    alert("Signup successful!");
+  });
+
+  // Close modal if user dismisses
+  function handleAuthClose() {
+    let closedCount = parseInt(localStorage.getItem("authClosedCount")) || 0;
+    closedCount++;
+    localStorage.setItem("authClosedCount", closedCount);
+    toggleAuthFlip(false);
+  }
+</script>
+
   
 </body>
 </html>
